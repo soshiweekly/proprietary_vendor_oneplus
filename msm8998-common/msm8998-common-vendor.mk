@@ -53,11 +53,6 @@ PRODUCT_COPY_FILES += \
     vendor/oneplus/msm8998-common/proprietary/vendor/firmware/ipa_fws.mdt:$(TARGET_COPY_OUT_VENDOR)/firmware/ipa_fws.mdt \
     vendor/oneplus/msm8998-common/proprietary/vendor/firmware/libpn553_fw.so:$(TARGET_COPY_OUT_VENDOR)/firmware/libpn553_fw.so
 
-PRODUCT_PACKAGES += \
-    IFAAService \
-    dashd
-
-ifeq ($(QCPATH),)
 PRODUCT_COPY_FILES += \
     vendor/oneplus/msm8998-common/proprietary/bin/dpmd:system/bin/dpmd \
     vendor/oneplus/msm8998-common/proprietary/vendor/bin/wfdservice:$(TARGET_COPY_OUT_VENDOR)/bin/wfdservice \
@@ -1186,34 +1181,6 @@ PRODUCT_COPY_FILES += \
     vendor/oneplus/msm8998-common/proprietary/vendor/lib64/vendor.qti.voiceprint@1.0.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.qti.voiceprint@1.0.so \
     vendor/oneplus/msm8998-common/proprietary/vendor/radio/qcril_database/qcril.db:$(TARGET_COPY_OUT_VENDOR)/radio/qcril_database/qcril.db
 
-PRODUCT_PACKAGES += \
-    com.qualcomm.qti.ant@1.0 \
-    libantradio \
-    vendor.qti.hardware.fm@1.0 \
-    libbtnv \
-    libgpustats \
-    libloc_api_v02 \
-    libsdm-disp-vndapis \
-    libthermalclient \
-    libtime_genoff \
-    CNEService \
-    com.qualcomm.location \
-    dpmserviceapp \
-    qcrilmsgtunnel \
-    QtiTelephonyService \
-    WfdService \
-    datastatusnotification \
-    embms \
-    ims \
-    imssettings \
-    TimeService \
-    WfdCommon \
-    vendor.qti.hardware.alarm-V1.0-java \
-    vendor.qti.hardware.sensorscalibrate-V1.0-java
-endif
-
--include vendor/extra/devices.mk
-ifneq ($(call is-qc-perf-target),true)
 PRODUCT_COPY_FILES += \
     vendor/oneplus/msm8998-common/proprietary/lib/libqti-perfd-client_system.so:system/lib/libqti-perfd-client_system.so \
     vendor/oneplus/msm8998-common/proprietary/lib/libqti_performance.so:system/lib/libqti_performance.so \
@@ -1258,4 +1225,32 @@ PRODUCT_COPY_FILES += \
     vendor/oneplus/msm8998-common/proprietary/vendor/lib64/vendor.qti.hardware.iop@1.0_vendor.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.qti.hardware.iop@1.0_vendor.so \
     vendor/oneplus/msm8998-common/proprietary/vendor/lib64/vendor.qti.hardware.iop@2.0_vendor.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.qti.hardware.iop@2.0_vendor.so \
     vendor/oneplus/msm8998-common/proprietary/vendor/lib64/vendor.qti.hardware.perf@1.0_vendor.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.qti.hardware.perf@1.0_vendor.so
-endif
+
+PRODUCT_PACKAGES += \
+    com.qualcomm.qti.ant@1.0 \
+    libantradio \
+    vendor.qti.hardware.fm@1.0 \
+    libbtnv \
+    libgpustats \
+    libloc_api_v02 \
+    libsdm-disp-vndapis \
+    libthermalclient \
+    libtime_genoff \
+    CNEService \
+    com.qualcomm.location \
+    dpmserviceapp \
+    qcrilmsgtunnel \
+    QtiTelephonyService \
+    WfdService \
+    datastatusnotification \
+    embms \
+    ims \
+    imssettings \
+    TimeService \
+    WfdCommon \
+    vendor.qti.hardware.alarm-V1.0-java \
+    vendor.qti.hardware.sensorscalibrate-V1.0-java
+
+PRODUCT_PACKAGES += \
+    IFAAService \
+    dashd
